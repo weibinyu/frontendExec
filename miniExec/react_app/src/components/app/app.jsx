@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../../stylesheet/App.css';
 import CommentAdd from '../comment-add/comment-add';
 import CommentList from '../comment-list/comment-list';
 
@@ -16,13 +15,25 @@ export default class App extends  Component{
         }
     }
 
+    addComment =(comment)=>{
+        const {comments} = this.state
+        comments.unshift(comment)
+        this.setState({comments})
+    }
+
+    deleteComment = (index) =>{
+        const {comments} = this.state
+        comments.splice(index,1)
+        this.setState({comments})
+    }
+
     render() {
         let comments = this.state.comments
     return(
-        <div>
+        <div className="form-horizontal">
             <h1>Please comment on React</h1>
-            <CommentAdd />
-            <CommentList comments={comments}/>
+            <CommentAdd addComment={this.addComment}/>
+            <CommentList comments={comments} deleteComment={this.deleteComment}/>
         </div>
     )
   }
