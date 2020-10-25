@@ -8,7 +8,6 @@ export default class CommentList extends Component{
 
     static propTypes = {
         comments:PropTypes.array.isRequired,
-        deleteComment: PropTypes.func.isRequired
     }
 
     render() {

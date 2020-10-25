@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import PubSub from 'pubsub-js'
+
 import CommentAdd from '../comment-add/comment-add'
 import CommentList from '../comment-list/comment-list'
 
@@ -26,6 +28,14 @@ export default class App extends  Component{
         comments.splice(index,1)
         this.setState({comments})
     }
+    componentDidMount() {
+        PubSub.subscribe('deleteComment',(msg,index)=>{
+            this.deleteComment(index)
+        })
+        PubSub.subscribe('addComment',(msg,comment)=>{
+            this.addComment(comment)
+        })
+    }
 
     render() {
         let comments = this.state.comments
@@ -42,8 +52,8 @@ export default class App extends  Component{
             </header>
             <div className="container">
                 <div className="row">
-                <CommentAdd addComment={this.addComment}/>
-                <CommentList comments={comments} deleteComment={this.deleteComment}/>
+                <CommentAdd />
+                <CommentList comments={comments} />
                 </div>
             </div>
         </div>

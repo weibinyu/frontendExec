@@ -1,16 +1,15 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+import PubSub from 'pubsub-js'
+
 export default class CommentAdd extends Component{
-    static propTypes ={
-        addComment: PropTypes.func.isRequired
-    }
+
     state = {
         username:'',
         content:''
     }
     handleSubmit = () =>{
         const comment = this.state
-        this.props.addComment(comment)
+        PubSub.publish('addComment',comment)
         this.setState({
                 username:'',
                 content:''

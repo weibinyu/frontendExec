@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import PubSub from 'pubsub-js'
 
 export default class Content extends Component{
     static propTypes ={
@@ -13,27 +14,28 @@ export default class Content extends Component{
         errorMessage:null
     }
 
-    componentWillReceiveProps(newProps,nextContent ) {
-        const searchName= newProps.searchName.toString()
-        this.setState({
-            initView:false,
-            loading:true
+    componentDidMount() {
+        PubSub.subscribe('search',(msg,searchName)=>{
+            this.setState({
+                initView:false,
+                loading:true
+            })
+            const url ='https://api.github.com/search/users?q='+searchName
+            axios.get(url)
+                .then(response =>{
+                    const result = response.data
+                    console.log(url)
+                    const users = result.items.map(item =>({
+                        name: item.login,
+                        url:item.url,
+                        avatarUrl:item.avatar_url
+                    }))
+                    this.setState({loading:false,users})
+                })
+                .catch(error =>{
+                    this.setState({loading:false,errorMsg:error.message})
+                })
         })
-        const url ='https://api.github.com/search/users?q='+searchName
-        axios.get(url)
-            .then(response =>{
-                const result = response.data
-                console.log(url)
-                const users = result.items.map(item =>({
-                    name: item.login,
-                    url:item.url,
-                    avatarUrl:item.avatar_url
-                }))
-                this.setState({loading:false,users})
-            })
-            .catch(error =>{
-                this.setState({loading:false,errorMsg:error.message})
-            })
     }
 
     render() {

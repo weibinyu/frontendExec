@@ -13,8 +13,8 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="container">
-                <Search setSearchName = {this.setSearchName}/>
-                <Content searchName ={this.state.searchName}/>
+                <Search />
+                <Content />
             </div>
         )
     }
