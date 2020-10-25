@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import CommentAdd from '../comment-add/comment-add';
-import CommentList from '../comment-list/comment-list';
+import React, {Component} from 'react'
+import CommentAdd from '../comment-add/comment-add'
+import CommentList from '../comment-list/comment-list'
 
 export default class App extends  Component{
 
@@ -30,11 +30,24 @@ export default class App extends  Component{
     render() {
         let comments = this.state.comments
     return(
-        <div className="form-horizontal">
-            <h1>Please comment on React</h1>
-            <CommentAdd addComment={this.addComment}/>
-            <CommentList comments={comments} deleteComment={this.deleteComment}/>
+        <div>
+            <header className="site-header jumbotron">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-xs-12">
+                            <h1>Please comment on React</h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div className="container">
+                <div className="row">
+                <CommentAdd addComment={this.addComment}/>
+                <CommentList comments={comments} deleteComment={this.deleteComment}/>
+                </div>
+            </div>
         </div>
+
     )
   }
 }

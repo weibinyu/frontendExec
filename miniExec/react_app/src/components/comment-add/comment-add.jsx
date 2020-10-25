@@ -30,7 +30,7 @@ export default class CommentAdd extends Component{
     render() {
         const {username,content} = this.state
         return(
-            <div className="col-md-4">
+            <div className="col-sm-4">
                 <form className="form-horizontal">
                     <div className="form-group">
                         <label>Username</label>

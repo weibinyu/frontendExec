@@ -1,24 +1,24 @@
-li{
+li {
     transition: .5s;
     overflow: hidden;
 }
 
 .handle {
-    width:50px;
+    width: 50px;
     border: 1px solid #ccc;
     background: #fff;
     position: absolute;
-    right:10px;
-    top:1px;
+    right: 10px;
+    top: 1px;
     text-align: center;
 }
 
-.handle a{
+.handle a {
     display: block;
     text-decoration: none;
 }
 
-.list-group-item .sentence{
+.list-group-item .sentence {
     padding: 0px 50px;
 }
 

@@ -21,7 +21,7 @@ export default class CommentItem extends Component{
     return(
         <li className="list-group-item">
             <div className="handle">
-                <a href= "javascript:" onClick={this.handleClick}>delete</a>
+                <a href= "javascript:;" onClick={this.handleClick}>delete</a>
             </div>
             <p className="user"><span>{comment.username}</span><span> said:</span></p>
             <p className="sentence">{comment.content}</p>
