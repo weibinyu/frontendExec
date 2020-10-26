@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Route} from "react-router";
 
 import messageDetail from "./message-detail";
+import {NavLink} from "react-router-dom";
 export default class Message extends Component{
 
     state = {
@@ -9,6 +10,7 @@ export default class Message extends Component{
     }
 
     componentDidMount() {
+        //use setTime out to simulate ajax request
         setTimeout(()=>{
             const messages = [
                 {id:1,title:'m1'},
@@ -19,6 +21,14 @@ export default class Message extends Component{
         },1000)
     }
 
+    showDetailUsingPush = (id) =>{
+        this.props.history.push('/home/message/message_detail/'+id)
+    }
+
+    showDetailUsingReplace = (id) =>{
+        this.props.history.replace('/home/message/message_detail/'+id)
+    }
+
     render() {
         return(
             <div>
@@ -26,7 +36,11 @@ export default class Message extends Component{
                     {
                         this.state.messages.map((message,index)=>(
                             <li key={index}>
-                                <a href={'/home/message/message_detail/'+message.id} >{message.title}</a>
+                                <NavLink to={'/home/message/message_detail/'+message.id}>{message.title}</NavLink>
+                                &nbsp;&nbsp;
+                                <button onClick={()=>{this.showDetailUsingPush(message.id)}}>history push</button>
+                                &nbsp;&nbsp;
+                                <button onClick={()=>{this.showDetailUsingReplace(message.id)}}>history replace</button>
                             </li>
                         ))
                     }
