@@ -9,6 +9,11 @@ import Login from "./containers/login/login";
 import store from "./redux/store";
 
 ReactDOM.render(
+    //Not using the Strict mode since InputItem from antd-mobil probably uses
+    //deprecated findDOMNode API from react-transition-group and that would cause
+    //this "Warning: Legacy context API has been detected within a strict-mode tree"
+    //But since this project is based on antd-mobil I had to live with it
+    <React.StrictMode>
     <Provider store={store}>
         <HashRouter>
             <Switch>
@@ -18,4 +23,5 @@ ReactDOM.render(
             </Switch>
         </HashRouter>
     </Provider>
+    </React.StrictMode>
     ,document.getElementById('root'))
