@@ -25,19 +25,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa189bc2-d174-45b1-a138-cb91ab80d050" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/afd17ad9-c90b-49af-9150-c67de88fe2f0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/containers/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/login/login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/containers/register/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/register/register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/redux/action-types.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/redux/action-types.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/redux/actions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/redux/actions.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/redux/reducers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/redux/reducers.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

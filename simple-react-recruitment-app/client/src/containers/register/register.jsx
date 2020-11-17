@@ -9,6 +9,7 @@ import {
     Button
 } from "antd-mobile";
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
 import Logo from "../../components/logo/logo";
 import {register} from "../../redux/actions";
@@ -39,13 +40,17 @@ class Register extends Component{
 
     render() {
         const {userType} = this.state
-
+        const {msg,redirectTo} = this.props.user
+        if(redirectTo){
+            return <Redirect to={redirectTo}/>
+        }
         return(
             <>
                 <NavBar>Recruitment App</NavBar>
                 <Logo/>
                 <WingBlank>
                     <List>
+                        {msg?<div className='error-msg'>{msg}</div>:null}
                         <InputItem placeholder='Please enter username'
                                    onChange={value => {this.handleChange('username',value)}}>
                             Username:
@@ -90,6 +95,6 @@ class Register extends Component{
 }
 
 export default connect(
-    state=>({}),
+    state=>({user:state.user}),
     {register}
 )(Register)

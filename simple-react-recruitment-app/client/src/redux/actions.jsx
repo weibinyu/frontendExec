@@ -38,6 +38,11 @@ export const register = (user) =>{
 }
 
 export const login = (user) =>{
+    const {username} = user
+    if(!username){
+        return errorMsg('Username is missing')
+    }
+
     return async dispatch =>{
         const response = await reqLogin(user)
         const result = response.data

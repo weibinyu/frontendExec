@@ -7,28 +7,38 @@ import {
     WhiteSpace,
     Button
 } from "antd-mobile";
+
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
+
 import Logo from "../../components/logo/logo";
+import {login} from "../../redux/actions";
 
-export default function Login(props){
+function Login(props){
 
-    const [info,setInfo] = useState({
+    const [userInfo,setUserInfo] = useState({
         username:'',
         password:''
     })
 
     const handleChange = (stateName,value)=>{
-        setInfo(prevState => ({
-            ...prevState,
+        setUserInfo(prevUserInfo => ({
+            ...prevUserInfo,
             [stateName]: value
         }));
     }
 
     const tryLogin = () =>{
-        console.log(info)
+        props.login(userInfo)
     }
 
     const toRegister = () =>{
         props.history.replace('/register')
+    }
+
+    const {msg,redirectTo} = props.user
+    if(redirectTo){
+        return <Redirect to={redirectTo}/>
     }
 
     return(
@@ -37,6 +47,7 @@ export default function Login(props){
             <Logo/>
             <WingBlank>
                 <List>
+                    {msg?<div className='error-msg'>{msg}</div>:null}
                     <InputItem placeholder='Please enter username'
                                onChange={value => {handleChange('username',value)}}>
                         Username:
@@ -55,3 +66,7 @@ export default function Login(props){
         </>
     )
 }
+export default connect(
+    state =>({user:state.user}),
+    {login}
+)(Login)
