@@ -8,11 +8,13 @@ import {
     Radio,
     Button
 } from "antd-mobile";
+import {connect} from 'react-redux'
 
 import Logo from "../../components/logo/logo";
+import {register} from "../../redux/actions";
 
 const ListItem = List.Item
-export default class Register extends Component{
+class Register extends Component{
 
     state = {
         username:'',
@@ -21,8 +23,8 @@ export default class Register extends Component{
         userType:''
     }
 
-    submitRegister =()=> {
-        console.log(this.state)
+    submitRegister = () => {
+        this.props.register(this.state)
     }
 
     handleChange = (stateName,value) =>{
@@ -86,3 +88,8 @@ export default class Register extends Component{
 
 
 }
+
+export default connect(
+    state=>({}),
+    {register}
+)(Register)
