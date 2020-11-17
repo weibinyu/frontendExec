@@ -26,7 +26,15 @@
   <component name="ChangeListManager">
     <list default="true" id="aa189bc2-d174-45b1-a138-cb91ab80d050" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/containers/register/register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/register/register.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/redux/action-types.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/redux/action-types.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/redux/actions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/redux/actions.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/redux/reducers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/redux/reducers.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +103,7 @@
       <workItem from="1605453715675" duration="2178000" />
       <workItem from="1605527561425" duration="3355000" />
       <workItem from="1605532581769" duration="4850000" />
-      <workItem from="1605594075989" duration="390000" />
+      <workItem from="1605594075989" duration="3726000" />
     </task>
     <servers />
   </component>
@@ -115,18 +123,18 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1032" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605532712698">
+    <state x="1032" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605594931782">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1032" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605532712698" />
+    <state x="1032" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605594931782" />
     <state x="1199" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605531570342">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1199" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605531570342" />
-    <state x="1232" y="261" key="FileChooserDialogImpl" timestamp="1605545574231">
+    <state x="1232" y="261" key="FileChooserDialogImpl" timestamp="1605595622152">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1232" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605545574231" />
+    <state x="1232" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605595622152" />
     <state width="889" height="279" key="GridCell.Tab.0.bottom" timestamp="1605550816910">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
