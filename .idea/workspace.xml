@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a5f5694-7dd8-4dbf-b28b-bed7c49e635b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/miniExec/react_redux/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniExec/react_redux/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniExec/react_redux/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/miniExec/react_redux/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniExec/react_redux/src/components/counter/counter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/miniExec/react_redux/src/components/counter/counter.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniExec/react_redux/src/containers/app.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/miniExec/react_redux/src/containers/app.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniExec/react_redux/src/redux/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniExec/react_redux/src/redux/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniExec/react_redux/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniExec/react_redux/src/redux/store.js" afterDir="false" />
-    </list>
+    <list default="true" id="1a5f5694-7dd8-4dbf-b28b-bed7c49e635b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,11 +32,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605612186817</updated>
-      <workItem from="1605612199902" duration="822000" />
+      <workItem from="1605612199902" duration="1750000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1220" y="261" key="FileChooserDialogImpl" timestamp="1605614288122">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1220" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605614288122" />
   </component>
 </project>
