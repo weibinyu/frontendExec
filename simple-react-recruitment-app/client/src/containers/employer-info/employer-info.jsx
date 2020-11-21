@@ -6,7 +6,10 @@ import {
     TextareaItem
 } from "antd-mobile";
 import{connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
+
 import AvatarSelector from "../../components/avatar-selector/avatar-selector";
+import {updateUser} from "../../redux/actions";
 
 function EmployerInfo(props){
 
@@ -33,7 +36,13 @@ function EmployerInfo(props){
     }
 
     const saveInfo = () =>{
-        console.log(userInfo)
+        props.updateUser(userInfo)
+    }
+
+    const {avatar,userType}= props.user
+    if(avatar){
+        const path = userType==="employer" ? '/employer' : '/employee'
+        return <Redirect to={path} />
     }
 
     return (
@@ -54,6 +63,6 @@ function EmployerInfo(props){
 }
 
 export default connect(
-    state=>({}),
-    {}
+    state=>({user:state.user}),
+    {updateUser}
 )(EmployerInfo)

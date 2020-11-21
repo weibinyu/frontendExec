@@ -6,6 +6,8 @@ import {
 } from "antd-mobile";
 import{connect} from 'react-redux'
 import AvatarSelector from "../../components/avatar-selector/avatar-selector";
+import {Redirect} from "react-router-dom";
+import {updateUser} from "../../redux/actions";
 
 function EmployeeInfo(props){
 
@@ -30,7 +32,13 @@ function EmployeeInfo(props){
     }
 
     const saveInfo = () =>{
-        console.log(userInfo)
+        props.updateUser(userInfo)
+    }
+
+    const {avatar,userType}= props.user
+    if(avatar){
+        const path = userType==="employer" ? '/employer' : '/employee'
+        return <Redirect to={path} />
     }
 
     return (
@@ -48,6 +56,6 @@ function EmployeeInfo(props){
 }
 
 export default connect(
-    state=>({}),
-    {}
+    state=>({user:state.user}),
+    {updateUser}
 )(EmployeeInfo)
