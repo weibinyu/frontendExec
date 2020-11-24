@@ -14,7 +14,7 @@ ReactDOM.render(
     //deprecated findDOMNode API from react-transition-group and that would cause
     //this "Warning: Legacy context API has been detected within a strict-mode tree"
     //But since this project is based on antd-mobil I had to live with it
-    <React.StrictMode>
+    //<React.StrictMode>
     <Provider store={store}>
         <HashRouter>
             <Switch>
@@ -24,5 +24,5 @@ ReactDOM.render(
             </Switch>
         </HashRouter>
     </Provider>
-    </React.StrictMode>
+    //</React.StrictMode>
     ,document.getElementById('root'))

@@ -21,5 +21,5 @@ module.exports = override(
                 strictMath: true,
             },
         },
-    })
+    }),
 );
