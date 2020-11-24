@@ -26,6 +26,38 @@ router.post('/login',(req,res)=>{
   })
 })
 
+router.post('/update',((req, res) =>{
+  const {userid} = req.cookies
+
+  if(!userid){
+    return res.send({code:1,msg:'Please login first'})
+  }
+  const userInfo = req.body
+  UserModel.findByIdAndUpdate({_id:userid},userInfo,(err,prevUserDoc) =>{
+    if(!prevUserDoc){
+      res.clearCookie('userid')
+      res.send({code:1,msg:'Could not update user information'})
+    }else {
+      const {_id,username,userType} = prevUserDoc
+      const data = Object.assign(userInfo,{_id,username,userType})
+      res.send({code:0,data})
+    }
+  })
+}))
+
+router.get('/getUserInfo',(req,res) =>{
+  const {userid} = req.cookies
+  console.log("adfasdfasdf")
+  if(!userid){
+    res.send({code:1,msg:'Please login first'})
+  }else {
+    UserModel.findOne({_id:userid},filter,(error,userDoc)=>{
+      //I assume that database is consistent so skipped user checking
+      res.send({code:0,data:userDoc})
+    })
+  }
+})
+
 module.exports = router;
 
 function registerNewUserIfNotExist(req,res){

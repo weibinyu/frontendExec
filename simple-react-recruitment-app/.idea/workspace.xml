@@ -19,41 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b102ef16-cc1b-48cb-bcab-0f3a543a1522" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/simple-react-recruitment-app.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-overrides.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/login/login.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/main/main.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/register/register.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/action-types.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.jsx" beforeDir="false" />
-    </list>
+    <list default="true" id="b102ef16-cc1b-48cb-bcab-0f3a543a1522" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,6 +98,8 @@
       <workItem from="1605293661264" duration="4195000" />
       <workItem from="1605340447463" duration="5337000" />
       <workItem from="1605446325329" duration="5793000" />
+      <workItem from="1605768841916" duration="77000" />
+      <workItem from="1605851671691" duration="22000" />
     </task>
     <servers />
   </component>
@@ -159,10 +127,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1095" y="296" key="EditFileWatcherDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605342324634" />
-    <state x="1220" y="264" key="FileChooserDialogImpl" timestamp="1605453749559">
+    <state x="1220" y="264" key="FileChooserDialogImpl" timestamp="1605851690574">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1220" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605453749559" />
+    <state x="1220" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605851690574" />
     <state width="936" height="281" key="GridCell.Tab.0.bottom" timestamp="1605453750665">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
