@@ -1,9 +1,12 @@
 <template>
-  <div id="main" class="home-nav">
-    <nav-bar>
-      <div slot="center">Shopping mall</div>
-    </nav-bar>
-    <MainCarousel :banners="banners"></MainCarousel>
+  <div id="main" >
+    <div class="home-nav">
+      <nav-bar>
+        <div slot="center">Shopping mall</div>
+      </nav-bar>
+    </div>
+    <MainCarousel :banners="banners"/>
+    <MainRecommendationsView :recommends="recommends"/>
   </div>
 
 </template>
@@ -11,6 +14,7 @@
 <script>
   import NavBar from "components/common/navbar/NavBar";
   import MainCarousel from "./childComponents/MainCarousel";
+  import MainRecommendationsView from "@/views/main/childComponents/MainRecommendationsView";
 
   import {getMainMultiData} from "network/main";
 
@@ -18,7 +22,8 @@
     name: "Main",
     components:{
       NavBar,
-      MainCarousel
+      MainCarousel,
+      MainRecommendationsView
     },
     data() {
       return {
