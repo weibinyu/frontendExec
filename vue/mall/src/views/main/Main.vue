@@ -1,12 +1,11 @@
 <template>
   <div id="main" >
-    <div class="home-nav">
-      <nav-bar>
-        <div slot="center">Shopping mall</div>
-      </nav-bar>
-    </div>
-    <MainCarousel :banners="banners"/>
-    <MainRecommendationsView :recommends="recommends"/>
+    <nav-bar class="main-nav">
+      <div slot="center">Shopping mall</div>
+    </nav-bar>
+    <main-carousel :banners="banners"/>
+    <main-recommendations-view :recommends="recommends"/>
+    <main-trends-view/>
   </div>
 
 </template>
@@ -14,8 +13,8 @@
 <script>
   import NavBar from "components/common/navbar/NavBar";
   import MainCarousel from "./childComponents/MainCarousel";
-  import MainRecommendationsView from "@/views/main/childComponents/MainRecommendationsView";
-
+  import MainRecommendationsView from "./childComponents/MainRecommendationsView";
+  import MainTrendsView from "./childComponents/MainTrendsView";
   import {getMainMultiData} from "network/main";
 
   export default {
@@ -23,7 +22,8 @@
     components:{
       NavBar,
       MainCarousel,
-      MainRecommendationsView
+      MainRecommendationsView,
+      MainTrendsView
     },
     data() {
       return {
@@ -41,8 +41,17 @@
 </script>
 
 <style scoped>
-  .home-nav {
+  #main{
+    padding-top: 44px;
+  }
+
+  .main-nav {
     background-color: var(--color-tint);
     color: white;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top:0;
+    z-index: 9;
   }
 </style>
