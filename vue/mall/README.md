@@ -1,4 +1,5 @@
 # mall
+This is simple e-mall mobil app based on vue. Created for my own vue learning process.
 
 ## Project setup
 ```
