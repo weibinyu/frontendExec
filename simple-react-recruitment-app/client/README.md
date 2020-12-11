@@ -1,3 +1,6 @@
+# Description
+This recruitment project is made for react and backend(NodeJs) learning.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
