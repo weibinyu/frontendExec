@@ -10,14 +10,15 @@ function FooterNav (props){
     let {navList} = props
     navList = navList.filter(nav => !nav.hide)
     const path = props.location.pathname
+    console.log(`./images/${navList[0].icon}.png`)
 
     return (
         <TabBar>
             {
                 navList.map((nav, index)=>(
                      <Item key = {nav.path} title={nav.text}
-                           icon={{uri:'./images/' +nav.icon+'.png'}}
-                           SelectedIcon={{uri:'./images/' +nav.icon+'-selected.png'}}
+                           icon={{uri: require(`./images/${nav.icon}.png`).default}}
+                           SelectedIcon={{uri: require(`./images/${nav.icon}-selected.png`).default}}
                            Selected={path === nav.path} onPress={()=>props.history.replace(nav.path)}
                      />
                 ))

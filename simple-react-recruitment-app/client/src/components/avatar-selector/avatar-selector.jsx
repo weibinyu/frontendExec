@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 export default function AvatarSelector(props){
     //probably not needed, used to state that function is needed
+    //TODO change to useReduce
     const propTypes = {
         setAvatar: PropTypes.func.isRequired
     }
@@ -15,9 +16,8 @@ export default function AvatarSelector(props){
         )))
 
     const avatarList = Array.from(new Array(20)).map((val,i)=>({
-        //icon: require('./avatars/Avatar1.png'), this method doesn't work. so i put all avatars in public instead
-        icon:'./avatars/Avatar'+(i+1)+'.png',
-        text:'Avatar'+(i+1),
+        icon: require(`./avatars/Avatar${i+1}.png`).default,
+        text:`Avatar${i+1}`,
     }))
 
     //using icon as name instead of avatar because otherwise Grid can't understand it
