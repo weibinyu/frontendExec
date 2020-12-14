@@ -7,18 +7,16 @@ const addLessLoader = require("customize-cra-less-loader");
 
 module.exports = override(
     fixBabelImports("import", {
-        libraryName: "antd-mobile", style:"css"
+        libraryName: "antd-mobile", style: true
     }),
     addLessLoader({
-        cssLoaderOptions: {
-            sourceMap: true,
-            modules: {
-                localIdentName: "[hash:base64:8]",
-            },
-        },
         lessLoaderOptions: {
             lessOptions: {
-                strictMath: true,
+                javascriptEnabled: true,
+                modifyVars:{
+                    "@brand-primary":"#1cae82",
+                    "@brand-primary-tap":"#1DA57A",
+                },
             },
         },
     }),

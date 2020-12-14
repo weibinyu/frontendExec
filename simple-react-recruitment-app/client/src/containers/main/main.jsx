@@ -1,4 +1,3 @@
-import React, {Component} from 'react'
 import {Switch,Route,Redirect} from "react-router-dom";
 import{connect} from 'react-redux'
 import Cookies from 'js-cookie'
@@ -15,9 +14,10 @@ import {getRedirectTo} from "../../utils";
 import {getUserInfo} from "../../redux/actions";
 import FooterNav from "../../components/footer-nav/footer-nav"
 
-class Main extends Component{
+import React,{useEffect} from 'react'
 
-    navList = [
+function Main(props){
+    const navList = [
         {
             path: '/employee',
             component: Employee,
@@ -48,61 +48,56 @@ class Main extends Component{
         }
     ]
 
-
-
-    componentDidMount() {
+    useEffect(() => {
         const userid = Cookies.get('userid')
-        const {_id} = this.props.user
+        const {_id} = props.user
         if(userid && !_id){
-            this.props.getUserInfo()
+            props.getUserInfo()
+        }
+    },[])
+
+    const userid = Cookies.get('userid')
+    if(!userid){
+        return <Redirect to='/login'/>
+    }
+
+    const {user} = props
+    if(!user._id){
+        return null
+    }else{
+        let path = props.location.pathname
+        if(path === '/'){
+            path = getRedirectTo(user.userType,user.avatar)
+            return  <Redirect to={path}/>
         }
     }
 
-    render() {
+    const path = props.location.pathname
+    const currentNav = navList.find(nav => nav.path===path)
 
-        const userid = Cookies.get('userid')
-        if(!userid){
-            return <Redirect to='/login'/>
-        }
-        const {user} = this.props
-        if(!user._id){
-            return null
-        }else{
-            let path = this.props.location.pathname
-            if(path==='/'){
-                path = getRedirectTo(user.userType,user.avatar)
-                return  <Redirect to={path}/>
-            }
-        }
-
-        const {navList} = this
-        const path = this.props.location.pathname
-        const currentNav = navList.find(nav => nav.path===path)
-
-        if(user.type ==='employer'){
+    if(currentNav){
+        if( user.type === 'employer' ){
             navList[0].hide = true
         }else {
             navList[1].hide = true
         }
-
-        return(
-            <>
-                {currentNav? <NavBar>{currentNav.title}</NavBar> : null}
-                <Switch>
-                    {
-                        navList.map((nav,index) => <Route key = {index} path={nav.path} component={nav.component}/>)
-                    }
-                    <Route path='/employer_info' component={EmployerInfo} />
-                    <Route path='/employee_info' component={EmployeeInfo} />
-
-                    <Route component={NotFound} />
-                </Switch>
-                {currentNav? <FooterNav navList={navList}/> : null}
-            </>
-        )
     }
-}
+    return(
+        <>
+            {currentNav? <NavBar>{currentNav.title}</NavBar> : null}
+            <Switch>
+                {
+                    navList.map((nav,index) => <Route key = {index} path={nav.path} component={nav.component}/>)
+                }
+                <Route path='/employer_info' component={EmployerInfo} />
+                <Route path='/employee_info' component={EmployeeInfo} />
 
+                <Route component = { NotFound } />
+            </Switch>
+            {currentNav? <FooterNav navList={navList}/> : null}
+        </>
+    )
+}
 export default connect(
     state =>({user:state.user}),
     {getUserInfo}
