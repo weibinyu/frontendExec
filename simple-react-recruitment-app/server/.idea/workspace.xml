@@ -26,7 +26,12 @@
   <component name="ChangeListManager">
     <list default="true" id="aa189bc2-d174-45b1-a138-cb91ab80d050" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/.idea/dataSources/ccaf815e-a595-49dc-b7e3-be7699e7be6d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/dataSources/ccaf815e-a595-49dc-b7e3-be7699e7be6d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/api/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/api/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/containers/personal/personal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/personal/personal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +69,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.4" />
-    <property name="javascript.nodejs.core.library.typings.version" value="12.19.4" />
+    <property name="javascript.nodejs.core.library.typings.version" value="12.19.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../client" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -101,6 +106,10 @@
       <workItem from="1605897115480" duration="1225000" />
       <workItem from="1605960372324" duration="7063000" />
       <workItem from="1606198615474" duration="1578000" />
+      <workItem from="1607769800153" duration="4000" />
+      <workItem from="1607769820000" duration="3647000" />
+      <workItem from="1607952827170" duration="1529000" />
+      <workItem from="1608011324873" duration="4658000" />
     </task>
     <servers />
   </component>
@@ -118,39 +127,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="1032" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605594931782">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1032" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605594931782" />
-    <state x="1199" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605531570342">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1199" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605531570342" />
-    <state x="1232" y="261" key="FileChooserDialogImpl" timestamp="1606198964888">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1232" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606198964888" />
-    <state width="914" height="279" key="GridCell.Tab.0.bottom" timestamp="1605855881776">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605855881776" />
-    <state width="914" height="279" key="GridCell.Tab.0.center" timestamp="1605855881776">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605855881776" />
-    <state width="914" height="279" key="GridCell.Tab.0.left" timestamp="1605855881776">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605855881776" />
-    <state width="914" height="279" key="GridCell.Tab.0.right" timestamp="1605855881776">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="914" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605855881776" />
-    <state x="922" y="164" key="SettingsEditor" timestamp="1605535016474">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="922" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605535016474" />
   </component>
 </project>

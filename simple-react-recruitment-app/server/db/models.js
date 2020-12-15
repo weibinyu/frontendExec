@@ -10,11 +10,13 @@ const userSchema = mongoose.Schema({
     username: {type: String, required: true},
     password: {type: String, required: true},
     userType: {type: String, required: true},
-    header: {type: String},
-    post: {type: String},
-    info: {type: String},
-    company: {type: String},
-    salary: {type: String}
+    avatar: {type: String},
+    desiredPosition: {type: String},
+    personalInfo: {type: String},
+    companyName: {type: String},
+    positionRequirement:{type: String},
+    offerSalary: {type: String}
+
 })
 
 const UserModel = mongoose.model('user', userSchema)
