@@ -16,7 +16,7 @@ export default function AvatarSelector(props){
         )))
 
     const avatarList = Array.from(new Array(20)).map((val,i)=>({
-        icon: require(`./avatars/Avatar${i+1}.png`).default,
+        icon: require(`@/assets/avatars/Avatar${i + 1}.png`).default,
         text:`Avatar${i+1}`,
     }))
 

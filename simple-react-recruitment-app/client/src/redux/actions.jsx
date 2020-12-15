@@ -14,7 +14,7 @@ import {
 const authSuccess = (user) =>({type: AUTH_SUCCESS, user})
 const errorMsg = (msg) =>({type:ERROR_MSG, msg})
 const receiveUser = (user) =>({type:RECEIVE_USER,user})
-const resetUser = (msg) =>({type:RESET_USER,msg})
+export const resetUser = (msg) =>({type:RESET_USER,msg})
 
 export const register = (user) =>{
 
@@ -64,6 +64,7 @@ export const updateUser = (user) =>{
         const response = await reqUserUpdate(user)
         const result = response.data
         if(result.code===0){
+            console.log(result.data)
             dispatch(receiveUser(result.data))
         }else {
             dispatch(resetUser(result.msg))
