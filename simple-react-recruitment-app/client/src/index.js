@@ -9,6 +9,8 @@ import Login from "./containers/login/login";
 import store from "./redux/store";
 import './assets/css/index.less'
 
+import './test/socketio_test'
+
 ReactDOM.render(
     //Not using the Strict mode since InputItem from antd-mobil probably uses
     //deprecated findDOMNode API from react-transition-group and that would cause
