@@ -2,12 +2,11 @@ import React,{useState} from 'react'
 import {List,Grid} from "antd-mobile";
 import PropTypes from "prop-types";
 
+AvatarSelector.propTypes = {
+    setAvatar: PropTypes.func.isRequired
+}
+
 export default function AvatarSelector(props){
-    //probably not needed, used to state that function is needed
-    //TODO change to useReduce
-    const propTypes = {
-        setAvatar: PropTypes.func.isRequired
-    }
 
     const [listHeader,setListHeader] = useState(((
         <div>
@@ -24,7 +23,7 @@ export default function AvatarSelector(props){
     const handleClick = ({text,icon}) => {
         setListHeader(
             (<div>
-                Selected Avatar:<img src={icon} />
+                Selected Avatar:<img src={icon} alt="user avatar"/>
             </div>)
         )
 

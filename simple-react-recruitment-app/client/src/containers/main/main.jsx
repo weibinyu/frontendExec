@@ -21,16 +21,16 @@ function Main(props){
         {
             path: '/employee',
             component: Employee,
-            title: 'Employee list',
+            title: 'Employers list',
             icon: 'employee',
-            text: 'Employee',
+            text: 'Employers',
         },
         {
             path: '/employer',
             component: Employer,
-            title: 'Employer list',
+            title: 'Employees list',
             icon: 'employer',
-            text: 'Employer',
+            text: 'Employees',
         },
         {
             path: '/message',
@@ -54,6 +54,7 @@ function Main(props){
         if(userid && !_id){
             props.getUserInfo()
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const userid = Cookies.get('userid')
@@ -73,7 +74,7 @@ function Main(props){
     }
 
     const path = props.location.pathname
-    const currentNav = navList.find(nav => nav.path===path)
+    const currentNav = navList.find(nav => nav.path === path)
 
     if(currentNav){
         if( user.type === 'employer' ){
@@ -84,7 +85,7 @@ function Main(props){
     }
     return(
         <>
-            {currentNav? <NavBar>{currentNav.title}</NavBar> : null}
+            {currentNav? <NavBar className='stick-at-top'>{currentNav.title}</NavBar> : null}
             <Switch>
                 {
                     navList.map((nav,index) => <Route key = {index} path={nav.path} component={nav.component}/>)

@@ -9,4 +9,10 @@
   width: 100%;
   height: inherit;
 }
+.stick-at-top {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 /*# sourceMappingURL=index.css.map */

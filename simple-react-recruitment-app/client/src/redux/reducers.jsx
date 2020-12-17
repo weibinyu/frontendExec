@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import {AUTH_SUCCESS, ERROR_MSG,RESET_USER,RECEIVE_USER} from "./action-types";
+import {AUTH_SUCCESS, ERROR_MSG, RESET_USER, RECEIVE_USER, RECEIVE_USER_LIST} from "./action-types";
 import {getRedirectTo} from "../utils";
 
 const initUser = {
@@ -10,7 +10,6 @@ const initUser = {
 }
 
 function user(state= initUser,action){
-    console.log(action)
     switch (action.type){
         case AUTH_SUCCESS:
             const {userType,avatar} = action.user
@@ -26,6 +25,17 @@ function user(state= initUser,action){
     }
 }
 
+const initUserList = []
+
+function userList(state = initUserList,action){
+    switch (action.type){
+        case RECEIVE_USER_LIST:
+            return action.userList
+        default:
+            return state
+    }
+}
+
 export default combineReducers({
-    user
+    user,userList
 });

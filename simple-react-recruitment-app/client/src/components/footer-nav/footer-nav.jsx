@@ -1,8 +1,13 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {TabBar} from "antd-mobile";
 import {withRouter} from 'react-router-dom'
+import PropTypes from "prop-types";
 
 const Item = TabBar.Item
+
+FooterNav.propTypes = {
+    navList : PropTypes.array.isRequired
+}
 
 function FooterNav (props){
     //TODO:useReducer navList
