@@ -10,7 +10,6 @@ FooterNav.propTypes = {
 }
 
 function FooterNav (props){
-    //TODO:useReducer navList
 
     let {navList} = props
     navList = navList.filter(nav => !nav.hide)

@@ -78,7 +78,7 @@ function Main(props){
     const currentNav = navList.find(nav => nav.path === path)
 
     if(currentNav){
-        if( user.type === 'employer' ){
+        if( user.userType === 'employer' ){
             navList[0].hide = true
         }else {
             navList[1].hide = true

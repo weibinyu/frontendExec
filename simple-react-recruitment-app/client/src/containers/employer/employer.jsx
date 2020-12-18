@@ -8,7 +8,6 @@ function Employer(props){
 
     useEffect(()=>{
         props.getUserList("employee")
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 

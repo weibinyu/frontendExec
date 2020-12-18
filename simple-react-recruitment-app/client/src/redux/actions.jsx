@@ -1,21 +1,36 @@
+import io from 'socket.io-client'
+
 import {
     reqRegister,
     reqLogin,
     reqUserUpdate,
-    reqUserInfo, reqUserList
+    reqUserInfo,
+    reqUserList,
+    reqChatMessageList
 } from "../api";
 import {
     AUTH_SUCCESS,
-    ERROR_MSG,
-    RECEIVE_USER, RECEIVE_USER_LIST,
-    RESET_USER
+    ERROR_MSG, RECEIVE_MESSAGE_LIST,
+    RECEIVE_USER,
+    RECEIVE_USER_LIST,
+    RESET_USER,
 } from "./action-types";
+
+function initIO(){
+    if(!io.socket){
+        io.socket = io('ws://localhost:4000')
+        io.socket.on('receiveMessage',(data) => {
+            console.log('Browser got data: ',data)
+        })
+    }
+}
 
 const authSuccess = (user) =>({type: AUTH_SUCCESS, user})
 const errorMsg = (msg) =>({type:ERROR_MSG, msg})
 const receiveUser = (user) =>({type:RECEIVE_USER,user})
 export const resetUser = (msg) =>({type:RESET_USER,msg})
 export const receiveUserList = (userList) =>({type:RECEIVE_USER_LIST,userList})
+export const receiveMessageList = ({users,chatMessages}) =>({type:RECEIVE_MESSAGE_LIST, data: {users,chatMessages}})
 
 export const register = (user) =>{
 
@@ -36,13 +51,13 @@ export const register = (user) =>{
         const response = await reqRegister({username,password,userType})
         const result = response.data
         if(result.code === 0){
+            getMessageList(dispatch)
             dispatch(authSuccess(result.data))
         }else {
             dispatch(errorMsg(result.msg))
         }
     }
 }
-
 export const login = (user) =>{
     const {username} = user
     if(!username){
@@ -53,13 +68,13 @@ export const login = (user) =>{
         const response = await reqLogin(user)
         const result = response.data
         if(result.code === 0){
+            getMessageList(dispatch)
             dispatch(authSuccess(result.data))
         }else {
             dispatch(errorMsg(result.msg))
         }
     }
 }
-
 export const updateUser = (user) =>{
     return async dispatch =>{
         const response = await reqUserUpdate(user)
@@ -72,19 +87,18 @@ export const updateUser = (user) =>{
         }
     }
 }
-
 export const getUserInfo = () =>{
     return async dispatch =>{
         const response = await reqUserInfo()
         const result = response.data
         if(result.code===0){
+            getMessageList(dispatch)
             dispatch(receiveUser(result.data))
         }else {
             dispatch(resetUser(result.msg))
         }
     }
 }
-
 export const getUserList = (userType) => {
     return async dispatch => {
         const response = await reqUserList(userType)
@@ -92,6 +106,21 @@ export const getUserList = (userType) => {
         if(result.code === 0){
             dispatch(receiveUserList(result.data))
         }
+    }
+}
+export const sendMessage = ({from,to,content}) => {
+    return dispatch => {
+        io.socket.emit('sendMessage',{from,to,content})
+    }
+}
+
+async function getMessageList(dispatch){
+    initIO()
+    const response = await reqChatMessageList()
+    const result = response.data
+    if(result.code ===0 ){
+        const {users,chatMessages} = result.data
+        dispatch(receiveMessageList({users,chatMessages}))
     }
 }
 
