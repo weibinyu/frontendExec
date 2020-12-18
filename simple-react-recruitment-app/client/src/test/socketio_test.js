@@ -2,7 +2,7 @@ import io from 'socket.io-client'
 
 const socket = io('ws://localhost:4000')
 
-socket.on('receiveMgs',function (data){
+socket.on('receiveMsg',function (data){
   console.log('Browser got data: ',data)
 })
 

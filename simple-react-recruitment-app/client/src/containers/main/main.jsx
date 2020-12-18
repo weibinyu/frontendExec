@@ -13,6 +13,7 @@ import NotFound from "../../components/not-found/not-found";
 import {getRedirectTo} from "../../utils";
 import {getUserInfo} from "../../redux/actions";
 import FooterNav from "../../components/footer-nav/footer-nav"
+import Chat from "../chat/chat";
 
 import React,{useEffect} from 'react'
 
@@ -92,6 +93,7 @@ function Main(props){
                 }
                 <Route path='/employer_info' component={EmployerInfo} />
                 <Route path='/employee_info' component={EmployeeInfo} />
+                <Route path='/chat/:userid' component={Chat} />
 
                 <Route component = { NotFound } />
             </Switch>
