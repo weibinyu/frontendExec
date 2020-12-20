@@ -60,7 +60,11 @@ function chat(state=initChat,action){
                 totalUnReadMessages:0
             }
         case RECEIVE_MESSAGE:
-            return initChat
+            return {
+                users:state.users,
+                chatMessages:[...state.chatMessages,action.chatMessage],
+                totalUnReadMessages:0
+            }
         default:
             return initChat
     }

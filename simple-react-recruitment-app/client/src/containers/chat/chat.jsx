@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
-import {InputItem, List, NavBar} from "antd-mobile";
-import {sendMessage} from "../../redux/actions";
+import {InputItem, List, NavBar,Icon} from "antd-mobile";
+import {sendMessage,getUserInfo} from "../../redux/actions";
 
 const Item = List.Item
 
@@ -9,6 +9,16 @@ function Chat(props){
   const {user} = props
   const {users,chatMessages} = props.chat
   const [content,setContent] = useState(" ")
+
+  useEffect(() => {
+    props.getUserInfo()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
+  useEffect(() => {
+    window.scrollTo(0,document.body.scrollHeight)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  })
 
   const handleSend = () =>{
     const from = user._id
@@ -21,7 +31,7 @@ function Chat(props){
 
   const meId = user._id
   if(!users[meId]){
-    return null
+   return null
   }
   const targetId = props.match.params.userid
   const chatId = [meId,targetId].sort().join('_')
@@ -33,7 +43,13 @@ function Chat(props){
 
   return (
       <div id='chat-page'>
-        <NavBar>aa</NavBar>
+        <NavBar
+            icon={<Icon type='left'/>}
+            onLeftClick={()=> props.history.goBack()}
+            className='stick-at-top'
+        >
+          {users[targetId].username}
+        </NavBar>
         <List>
           {
             messages.map(message => {
@@ -79,5 +95,5 @@ function Chat(props){
 
 export default connect(
   state =>({user: state.user, chat: state.chat}),
-    {sendMessage}
+    {sendMessage,getUserInfo}
 )(Chat)

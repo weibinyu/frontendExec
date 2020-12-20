@@ -5,8 +5,10 @@
 import axios from 'axios'
 
 export default function ajax(url, data={}, type='GET'){
+
     if(type==='GET'){
         const paramStr = createParamString(data)
+        console.log(url)
         return axios.get(url+'?'+paramStr)
     }else {
         return axios.post(url,data)
