@@ -65,7 +65,7 @@ function Chat(props){
         >
           {users[targetId].username}
         </NavBar>
-        <List>
+        <List style={{marginTop:50,marginBottom:50}}>
           {
             messages.map(message => {
               if(meId === message.to){
@@ -107,7 +107,6 @@ function Chat(props){
           />
          { emojiShow ? (
               <Grid
-                  style={{zIndex:999}}
                   data={antdEmoji}
                   columnNum={8}
                   carouselMaxRow={4}
