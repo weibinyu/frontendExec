@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
-import {InputItem, List, NavBar,Icon} from "antd-mobile";
+import {InputItem, List, NavBar, Icon, Grid} from "antd-mobile";
 import {sendMessage,getUserInfo} from "../../redux/actions";
 
 const Item = List.Item
@@ -9,6 +9,11 @@ function Chat(props){
   const {user} = props
   const {users,chatMessages} = props.chat
   const [content,setContent] = useState(" ")
+  const [emojiShow,setEmojiShow] = useState(false)
+  const emojis = ['😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀', '😀','😀','😀',
+    '😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀',
+    '😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀']
+  const antdEmoji = emojis.map(emoji => ({text: emoji}))
 
   useEffect(() => {
     props.getUserInfo()
@@ -27,6 +32,18 @@ function Chat(props){
       props.sendMessage({from,to,content})
     }
     setContent('')
+    setEmojiShow(false)
+  }
+
+  const toggleEmoji = () => {
+    const isShow = !emojiShow
+    setEmojiShow(isShow)
+    //sending a async resize event to solve the emoji display bug with antd grid
+    if(isShow){
+      setTimeout(() =>{
+        window.dispatchEvent(new Event('resize'))
+      },0)
+    }
   }
 
   const meId = user._id
@@ -35,9 +52,7 @@ function Chat(props){
   }
   const targetId = props.match.params.userid
   const chatId = [meId,targetId].sort().join('_')
-
   const messages = chatMessages.filter(message => message.chat_id === chatId)
-
   const targetAvatar =
       users[targetId].avatar ? require(`@/assets/avatars/${users[targetId].avatar}.png`).default : null
 
@@ -75,19 +90,34 @@ function Chat(props){
               }
             })
           }
-
-
         </List>
-
         <div className='am-tab-bar'>
           <InputItem
               placeholder="input bar"
               value={content}
               onChange={value => {setContent(value)}}
+              onFocus={() => setEmojiShow(false)}
               extra={
-                <span onClick={handleSend}>Send</span>
+                <span>
+                  <span onClick={toggleEmoji} style={{marginRight:10}}>😀</span>
+                  <span onClick={handleSend}>Send</span>
+                </span>
+
               }
           />
+         { emojiShow ? (
+              <Grid
+                  style={{zIndex:999}}
+                  data={antdEmoji}
+                  columnNum={8}
+                  carouselMaxRow={4}
+                  isCarousel={true}
+                  onClick={item => {
+                    setContent(content + item.text)
+                  }}
+              />
+          ) : null }
+
         </div>
       </div>
   )
