@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {InputItem, List, NavBar, Icon, Grid} from "antd-mobile";
-import {sendMessage,getUserInfo} from "../../redux/actions";
+import {sendMessage} from "../../redux/actions";
 
 const Item = List.Item
 
 function Chat(props){
+  //console.log("hello")
   const {user} = props
   const {users,chatMessages} = props.chat
   const [content,setContent] = useState(" ")
@@ -14,11 +15,6 @@ function Chat(props){
     '😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀',
     '😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀','😀']
   const antdEmoji = emojis.map(emoji => ({text: emoji}))
-
-  useEffect(() => {
-    props.getUserInfo()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
 
   useEffect(() => {
     window.scrollTo(0,document.body.scrollHeight)
@@ -122,5 +118,5 @@ function Chat(props){
 
 export default connect(
   state =>({user: state.user, chat: state.chat}),
-    {sendMessage,getUserInfo}
+    {sendMessage}
 )(Chat)

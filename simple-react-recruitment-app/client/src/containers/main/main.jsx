@@ -48,7 +48,6 @@ function Main(props){
             text: 'Personal ',
         }
     ]
-
     useEffect(() => {
         const userid = Cookies.get('userid')
         const {_id} = props.user
@@ -102,6 +101,6 @@ function Main(props){
     )
 }
 export default connect(
-    state =>({user:state.user}),
+    state =>({user:state.user,chat:state.chat}),
     {getUserInfo}
 )(Main)

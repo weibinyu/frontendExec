@@ -18,6 +18,7 @@ const initUser = {
 }
 
 function user(state= initUser,action){
+
     switch (action.type){
         case AUTH_SUCCESS:
             const {userType,avatar} = action.user
@@ -54,6 +55,7 @@ function chat(state=initChat,action){
     switch (action.type){
         case RECEIVE_MESSAGE_LIST:
             const {users,chatMessages} = action.data
+            console.log(action.data)
             return {
                 users,
                 chatMessages,
@@ -66,7 +68,7 @@ function chat(state=initChat,action){
                 totalUnReadMessages:0
             }
         default:
-            return initChat
+            return state
     }
 }
 
