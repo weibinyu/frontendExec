@@ -16,7 +16,7 @@ function UserList(props){
 
   return (
       <>
-        <WingBlank style={{marginBottom:50,marginTop:50}}>
+        <WingBlank className='lists'>
           {
             userList.map(user => (
                 <div key={user._id}>
