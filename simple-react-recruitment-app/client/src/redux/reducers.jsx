@@ -48,24 +48,30 @@ function userList(state = initUserList,action){
 const initChat = {
     users:{}, //AttrName userid AttrContent{username,avatar}
     chatMessages:[],
-    totalUnReadMessages:0
+    unReadMessages:0
 }
 
 function chat(state=initChat,action){
     switch (action.type){
         case RECEIVE_MESSAGE_LIST:
-            const {users,chatMessages} = action.data
-            console.log(action.data)
+            const {users,chatMessages,userid} = action.data
             return {
                 users,
                 chatMessages,
-                totalUnReadMessages:0
+                unReadMessages: chatMessages.reduce((prev,message) =>{
+                    if(message.to === userid && !message.read){
+                        return prev+1
+                    }
+                    return prev
+                },0)
             }
         case RECEIVE_MESSAGE:
+            const {chatMessage} = action.data
             return {
                 users:state.users,
-                chatMessages:[...state.chatMessages,action.chatMessage],
-                totalUnReadMessages:0
+                chatMessages:[...state.chatMessages,chatMessage],
+                unReadMessages: state.unReadMessages +
+                    (!chatMessage.read && chatMessage.to === action.data.userid ? 1:0)
             }
         default:
             return state

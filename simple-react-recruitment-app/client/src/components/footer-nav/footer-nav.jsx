@@ -6,12 +6,13 @@ import PropTypes from "prop-types";
 const Item = TabBar.Item
 
 FooterNav.propTypes = {
-    navList : PropTypes.array.isRequired
+    navList : PropTypes.array.isRequired,
+    unReadMessages : PropTypes.number.isRequired
 }
 
 function FooterNav (props){
 
-    let {navList} = props
+    let {navList,unReadMessages} = props
     navList = navList.filter(nav => !nav.hide)
     const path = props.location.pathname
 
@@ -21,6 +22,7 @@ function FooterNav (props){
                 navList.map((nav, index)=>(
 
                      <Item key = {nav.path} title={nav.text}
+                           badge={nav.path==='/message'? unReadMessages : 0 }
                            icon={{uri: require(`./images/${nav.icon}.png`).default}}
                            selectedIcon={{uri: require(`./images/${nav.icon}-selected.png`).default}}
                            selected={path === nav.path} onPress={()=>props.history.replace(nav.path)}

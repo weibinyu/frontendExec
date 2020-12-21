@@ -48,6 +48,7 @@ function Chat(props){
   }
   const targetId = props.match.params.userid
   const chatId = [meId,targetId].sort().join('_')
+  console.log(chatMessages)
   const messages = chatMessages.filter(message => message.chat_id === chatId)
   const targetAvatar =
       users[targetId].avatar ? require(`@/assets/avatars/${users[targetId].avatar}.png`).default : null

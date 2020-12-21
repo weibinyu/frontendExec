@@ -9,18 +9,27 @@ function Message(props){
   const {user} = props
   const {users,chatMessages} = props.chat
 
-  const getLastMessageOfChats = (chatMessages) => {
+  const getLastMessageOfChats = (chatMessages,userid) => {
     const lastMessageOfChats = {}
 
     chatMessages.forEach(message =>{
+
+      if(message.to === userid && !message.read){
+        message.unReadMessages = 1
+      }else {
+        message.unReadMessages = 0
+      }
+
       const chatId = message.chat_id
       const lastMessage = lastMessageOfChats[chatId]
       if(!lastMessage){
         lastMessageOfChats[chatId] = message
       }else{
+        const unReadMessages = lastMessage.unReadMessages
         if(message.create_time > lastMessage.create_time){
           lastMessageOfChats[chatId] = message
         }
+        lastMessageOfChats[chatId].unReadMessages = message.unReadMessages + unReadMessages
       }
     })
 
@@ -32,7 +41,7 @@ function Message(props){
     return lastMessages
   }
 
-  const lastMessages = getLastMessageOfChats(chatMessages)
+  const lastMessages = getLastMessageOfChats(chatMessages,user._id)
 
   return (
       <List className='lists'>
@@ -42,7 +51,7 @@ function Message(props){
             const targetUser =  users[targetUserId]
             return(
                 <Item key={message.chat_id}
-                      extra={<Badge text={0}/>}
+                      extra={<Badge text={message.unReadMessages}/>}
                       thumb={targetUser.avatar ? require(`@/assets/avatars/${targetUser.avatar}.png`).default : null}
                       arrow='horizontal'
                       onClick={() => props.history.push(`/chat/${targetUserId}`)}

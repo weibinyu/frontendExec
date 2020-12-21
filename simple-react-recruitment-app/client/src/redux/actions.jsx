@@ -23,7 +23,8 @@ function initIO(dispatch,userid){
             console.log('Browser got data: ',chatMessage)
 
             if(userid === chatMessage.from || userid === chatMessage.to){
-                dispatch(receiveMessage(chatMessage))
+                console.log("DID happen")
+                dispatch(receiveMessage(chatMessage,userid))
             }
         })
     }
@@ -34,9 +35,9 @@ const errorMsg = (msg) =>({type:ERROR_MSG, msg})
 const receiveUser = (user) =>({type:RECEIVE_USER,user})
 export const resetUser = (msg) =>({type:RESET_USER,msg})
 export const receiveUserList = (userList) =>({type:RECEIVE_USER_LIST,userList})
-export const receiveMessageList = ({users,chatMessages}) =>
-    ({type:RECEIVE_MESSAGE_LIST, data: {users,chatMessages}})
-export const receiveMessage = (chatMessage) => ({type:RECEIVE_MESSAGE,chatMessage})
+export const receiveMessageList = ({users,chatMessages,userid}) =>
+    ({type:RECEIVE_MESSAGE_LIST, data: {users,chatMessages,userid}})
+export const receiveMessage = (chatMessage,userid) => ({type:RECEIVE_MESSAGE, data:{chatMessage,userid}})
 
 export const register = (user) =>{
 
@@ -125,7 +126,7 @@ async function getMessageList(dispatch,userid){
     const result = response.data
     if(result.code === 0 ){
         const {users,chatMessages} = result.data
-        dispatch(receiveMessageList({users,chatMessages}))
+        dispatch(receiveMessageList({users,chatMessages,userid}))
     }
 }
 

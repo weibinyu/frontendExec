@@ -62,7 +62,8 @@ function Main(props){
         return <Redirect to='/login'/>
     }
 
-    const {user} = props
+    const {user,unReadMessages} = props
+    console.log(unReadMessages)
     if(!user._id){
         return null
     }else{
@@ -96,11 +97,11 @@ function Main(props){
 
                 <Route component = { NotFound } />
             </Switch>
-            {currentNav? <FooterNav navList={navList}/> : null}
+            {currentNav? <FooterNav navList={navList} unReadMessages={unReadMessages}/> : null}
         </>
     )
 }
 export default connect(
-    state =>({user:state.user,chat:state.chat}),
+    state =>({user:state.user,unReadMessages:state.chat.unReadMessages}),
     {getUserInfo}
 )(Main)
