@@ -15,10 +15,23 @@ const userSchema = mongoose.Schema({
     personalInfo: {type: String},
     companyName: {type: String},
     positionRequirement:{type: String},
-    offerSalary: {type: String}
+    offerSalary: {type: String},
+    offerPosition: {type: String}
 
 })
 
 const UserModel = mongoose.model('user', userSchema)
 
+const chatSchema = mongoose.Schema({
+    from: {type: String, required: true},
+    to: {type: String, required: true},
+    chat_id: {type: String, required: true},//String of from + to
+    content: {type: String, required: true},
+    read: {type: Boolean, default: false},
+    create_time: {type: Number}
+})
+
+const ChatModel = mongoose.model('chat',chatSchema)
+
 exports.UserModel = UserModel
+exports.ChatModel = ChatModel

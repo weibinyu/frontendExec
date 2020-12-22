@@ -13,6 +13,11 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use((req,res,next) => {
+  res.header('Access-Control.Allow-Origin','*')
+  next()
+})
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
