@@ -6,11 +6,11 @@ import {
     reqUserUpdate,
     reqUserInfo,
     reqUserList,
-    reqChatMessageList
+    reqChatMessageList, reqMessageReadUpdate
 } from "../api";
 import {
     AUTH_SUCCESS,
-    ERROR_MSG, RECEIVE_MESSAGE, RECEIVE_MESSAGE_LIST,
+    ERROR_MSG, MESSAGE_READ, RECEIVE_MESSAGE, RECEIVE_MESSAGE_LIST,
     RECEIVE_USER,
     RECEIVE_USER_LIST,
     RESET_USER,
@@ -21,9 +21,7 @@ function initIO(dispatch,userid){
         io.socket = io('ws://localhost:4000')
         io.socket.on('receiveMessage',(chatMessage) => {
             console.log('Browser got data: ',chatMessage)
-
             if(userid === chatMessage.from || userid === chatMessage.to){
-                console.log("DID happen")
                 dispatch(receiveMessage(chatMessage,userid))
             }
         })
@@ -34,13 +32,13 @@ const authSuccess = (user) =>({type: AUTH_SUCCESS, user})
 const errorMsg = (msg) =>({type:ERROR_MSG, msg})
 const receiveUser = (user) =>({type:RECEIVE_USER,user})
 export const resetUser = (msg) =>({type:RESET_USER,msg})
-export const receiveUserList = (userList) =>({type:RECEIVE_USER_LIST,userList})
-export const receiveMessageList = ({users,chatMessages,userid}) =>
+const receiveUserList = (userList) =>({type:RECEIVE_USER_LIST,userList})
+const receiveMessageList = ({users,chatMessages,userid}) =>
     ({type:RECEIVE_MESSAGE_LIST, data: {users,chatMessages,userid}})
-export const receiveMessage = (chatMessage,userid) => ({type:RECEIVE_MESSAGE, data:{chatMessage,userid}})
+const receiveMessage = (chatMessage,userid) => ({type:RECEIVE_MESSAGE, data:{chatMessage,userid}})
+const messageRead = ({count,from,to}) => ({type:MESSAGE_READ,data:{count,from,to}})
 
 export const register = (user) =>{
-
     //validateUserInfo(user)
     //TODO:check out redux again, ask on stackoverflow if can't figure out
     const {username,password,confirmPassword,userType} = user
@@ -117,6 +115,17 @@ export const getUserList = (userType) => {
 export const sendMessage = ({from,to,content}) => {
     return dispatch => {
         io.socket.emit('sendMessage',{from,to,content})
+    }
+}
+
+export const readMessage =(from,to) => {
+    return async dispatch => {
+        const response = await reqMessageReadUpdate(from)
+        const result = response.data
+        if(result.code === 0){
+            const count = result.data
+            dispatch(messageRead({count,from,to}))
+        }
     }
 }
 

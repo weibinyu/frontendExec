@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Badge, List} from "antd-mobile";
+import RcQueueAnim from "rc-queue-anim";
 
 const Item = List.Item
 const Brief = Item.Brief
@@ -45,22 +46,25 @@ function Message(props){
 
   return (
       <List className='lists'>
-        {
-          lastMessages.map((message) => {
-            const targetUserId = message.to === user._id ?message.from:message.to
-            const targetUser =  users[targetUserId]
-            return(
-                <Item key={message.chat_id}
-                      extra={<Badge text={message.unReadMessages}/>}
-                      thumb={targetUser.avatar ? require(`@/assets/avatars/${targetUser.avatar}.png`).default : null}
-                      arrow='horizontal'
-                      onClick={() => props.history.push(`/chat/${targetUserId}`)}
-                >{message.content}
-                  <Brief>{targetUser.username}</Brief>
-                </Item>
-            )
-          })
-        }
+        <RcQueueAnim type='bottom' delay={100}>
+          {
+            lastMessages.map((message) => {
+              const targetUserId = message.to === user._id ?message.from:message.to
+              const targetUser =  users[targetUserId]
+              return(
+                  <Item key={message.chat_id}
+                        extra={<Badge text={message.unReadMessages}/>}
+                        thumb={targetUser.avatar ? require(`@/assets/avatars/${targetUser.avatar}.png`).default : null}
+                        arrow='horizontal'
+                        onClick={() => props.history.push(`/chat/${targetUserId}`)}
+                  >{message.content}
+                    <Brief>{targetUser.username}</Brief>
+                  </Item>
+              )
+            })
+          }
+        </RcQueueAnim>
+
       </List>
   )
 }

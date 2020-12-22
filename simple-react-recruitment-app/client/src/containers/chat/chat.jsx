@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import {InputItem, List, NavBar, Icon, Grid} from "antd-mobile";
-import {sendMessage} from "../../redux/actions";
+
+import {sendMessage,readMessage} from "../../redux/actions";
 
 const Item = List.Item
 
@@ -19,7 +20,17 @@ function Chat(props){
   useEffect(() => {
     window.scrollTo(0,document.body.scrollHeight)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  })
+  },[])
+
+  useEffect(() => {
+    window.scrollTo(0,document.body.scrollHeight)
+    return () => {
+      const from = props.match.params.userid
+      const to = user._id
+      props.readMessage(from,to)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[chatMessages.length])
 
   const handleSend = () =>{
     const from = user._id
@@ -48,7 +59,6 @@ function Chat(props){
   }
   const targetId = props.match.params.userid
   const chatId = [meId,targetId].sort().join('_')
-  console.log(chatMessages)
   const messages = chatMessages.filter(message => message.chat_id === chatId)
   const targetAvatar =
       users[targetId].avatar ? require(`@/assets/avatars/${users[targetId].avatar}.png`).default : null
@@ -63,31 +73,32 @@ function Chat(props){
           {users[targetId].username}
         </NavBar>
         <List className='lists'>
-          {
-            messages.map(message => {
-              if(meId === message.to){
-                return (
-                    <Item
-                        key={message._id}
-                        thumb={targetAvatar}
-                    >
-                      {message.content}
-                    </Item>
-                )
-              }else{
-                return (
-                    <Item
-                        key={message._id}
-                        className='chat-me'
-                        extra='me'
-                    >
-                      {message.content}
-                    </Item>
-                )
-              }
-            })
-          }
+            {
+              messages.map(message => {
+                if(meId === message.to){
+                  return (
+                      <Item
+                          key={message._id}
+                          thumb={targetAvatar}
+                      >
+                        {message.content}
+                      </Item>
+                  )
+                }else{
+                  return (
+                      <Item
+                          key={message._id}
+                          className='chat-me'
+                          extra='me'
+                      >
+                        {message.content}
+                      </Item>
+                  )
+                }
+              })
+            }
         </List>
+
         <div className='am-tab-bar'>
           <InputItem
               placeholder="input bar"
@@ -119,5 +130,5 @@ function Chat(props){
 
 export default connect(
   state =>({user: state.user, chat: state.chat}),
-    {sendMessage}
+    {sendMessage,readMessage}
 )(Chat)

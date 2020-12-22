@@ -63,7 +63,6 @@ function Main(props){
     }
 
     const {user,unReadMessages} = props
-    console.log(unReadMessages)
     if(!user._id){
         return null
     }else{
@@ -89,7 +88,8 @@ function Main(props){
             {currentNav? <NavBar className='stick-at-top'>{currentNav.title}</NavBar> : null}
             <Switch>
                 {
-                    navList.map((nav,index) => <Route key = {index} path={nav.path} component={nav.component}/>)
+                    navList.map((nav,index) =>
+                        <Route key = {index} path={nav.path} component={nav.component}/>)
                 }
                 <Route path='/employer_info' component={EmployerInfo} />
                 <Route path='/employee_info' component={EmployeeInfo} />

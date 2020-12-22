@@ -10,14 +10,14 @@
   height: inherit;
 }
 .stick-at-top {
-  z-index: 999;
+  z-index: 99;
   position: fixed;
   top: 0;
   width: 100%;
 }
 .lists {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 44px;
+  margin-bottom: 44px;
 }
 #chat-page .chat-me .am-list-extra {
   flex-basis: auto;
