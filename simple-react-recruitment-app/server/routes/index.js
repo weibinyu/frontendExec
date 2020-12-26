@@ -21,7 +21,6 @@ router.post('/register',(req,res)=>{
         username,
         password: md5(password),
         userType}).save(function (err, userDoc) {
-        console.log(userDoc)
         res.cookie('userid', userDoc._id, {maxAge: 1000*60*60*24*7})
         res.send({code: 0, data: {_id: userDoc._id, username, userType}})
       })
@@ -72,7 +71,6 @@ router.get('/userInfo',(req,res) =>{
 })
 
 router.get('/userList', (req,res) => {
-  console.log(req)
   const {userType} = req.query
   UserModel.find({userType},filter, (err,users) => {
     res.send({code: 0,data: users})
@@ -98,7 +96,6 @@ router.post('/readMessage',(req,res) => {
   const from = req.body.from
   const to = req.cookies.userid
   ChatModel.updateMany({from,to,read: false},{read: true},{multi: true},(err,doc) => {
-    console.log('readMessage',doc)
     res.send({code:0,data:doc.nModified})
   })
 })

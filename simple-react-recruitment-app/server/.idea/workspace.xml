@@ -26,18 +26,24 @@
   <component name="ChangeListManager">
     <list default="true" id="aa189bc2-d174-45b1-a138-cb91ab80d050" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/api/ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/api/ajax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/components/user-list/user-list.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/components/user-list/user-list.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/containers/employee/employee.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/employee/employee.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/containers/employer-info/employer-info.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/employer-info/employer-info.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/containers/employer/employer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/employer/employer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/containers/main/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/main/main.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/containers/personal/personal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/containers/personal/personal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/src/redux/actions.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/redux/actions.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/afd17ad9-c90b-49af-9150-c67de88fe2f0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/afd17ad9-c90b-49af-9150-c67de88fe2f0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/redux/reducers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/redux/reducers.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/www" beforeDir="false" afterPath="$PROJECT_DIR$/bin/www" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socketIO/socketIO_server.js" beforeDir="false" afterPath="$PROJECT_DIR$/socketIO/socketIO_server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +87,11 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\open source projects\frontendExec\simple-react-recruitment-app\server" />
+    </key>
+  </component>
   <component name="RunManager" selected="Node.js.models.js">
     <configuration name="db_test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/db/db_test.js" working-dir="$PROJECT_DIR$/db">
       <method v="2" />
@@ -121,7 +132,9 @@
       <workItem from="1608551223685" duration="2633000" />
       <workItem from="1608634455469" duration="2981000" />
       <workItem from="1608650192873" duration="677000" />
-      <workItem from="1608652659316" duration="660000" />
+      <workItem from="1608652659316" duration="719000" />
+      <workItem from="1608736132419" duration="5735000" />
+      <workItem from="1608969402421" duration="560000" />
     </task>
     <servers />
   </component>
