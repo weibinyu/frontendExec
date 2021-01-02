@@ -27,12 +27,7 @@ module.exports = {
         addWebpackAlias({
             ["@"]: path.resolve(__dirname,'src')
         }),
-    ),
-    paths: function(paths, env) {
-        // ...add your paths config
-        paths.appBuild = path.resolve(__dirname, 'build/react.mobil.recruitment');
-        return paths;
-    }
+    )
 }
 
 

@@ -58,9 +58,7 @@ function Main(props){
     },[])
 
     const userid = window.sessionStorage.getItem("userid")
-    console.log(userid)
     if(!userid){
-        console.log(document.cookie)
         return <Redirect to='/login'/>
     }
 

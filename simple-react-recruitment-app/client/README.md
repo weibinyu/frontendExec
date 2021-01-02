@@ -1,5 +1,5 @@
 # Description
-This recruitment project is made for react and backend(NodeJs) learning.
+This recruitment project is made for react and backend(NodeJs) learning. The page is currently hosted at https://www.thepriceofedu.xyz/react.mobil.recruitment/
 
 # Getting Started with Create React App
 

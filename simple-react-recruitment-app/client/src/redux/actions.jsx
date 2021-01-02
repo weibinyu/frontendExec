@@ -57,7 +57,7 @@ export const register = (user) =>{
         const response = await reqRegister({username,password,userType})
         const result = response.data
         if(result.code === 0){
-            window.sessionStorage.setItem("userid", result.data._id);
+            window.sessionStorage.setItem("userid", '1');
             await getMessageList(dispatch,result.data._id)
             dispatch(authSuccess(result.data))
         }else {
@@ -75,7 +75,7 @@ export const login = (user) =>{
         const response = await reqLogin(user)
         const result = response.data
         if(result.code === 0){
-            window.sessionStorage.setItem("userid", result.data._id);
+            window.sessionStorage.setItem("userid", '1');
             await getMessageList(dispatch,result.data._id)
             dispatch(authSuccess(result.data))
         }else {
@@ -100,7 +100,7 @@ export const getUserInfo = () =>{
         const response = await reqUserInfo()
         const result = response.data
         if(result.code===0){
-            window.sessionStorage.setItem("userid", result.data._id);
+            window.sessionStorage.setItem("userid", '1');
             await getMessageList(dispatch,result.data._id)
             dispatch(receiveUser(result.data))
         }else {
