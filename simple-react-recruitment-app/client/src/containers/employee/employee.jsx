@@ -5,7 +5,6 @@ import {getUserList} from "../../redux/actions";
 import UserList from "../../components/user-list/user-list";
 
 function Employee(props){
-
     useEffect(()=>{
         props.getUserList("employer")
 

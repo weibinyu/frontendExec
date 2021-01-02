@@ -15,7 +15,7 @@ function EmployerInfo(props){
 
     const [userInfo,setUserInfo] = useState({
         avatar:'',
-        postedPosition:'',
+        offeringPosition:'',
         positionRequirement:'',
         companyName:'',
         offerSalary:'',
@@ -49,14 +49,14 @@ function EmployerInfo(props){
         <>
             <NavBar>Employer Info</NavBar>
             <AvatarSelector setAvatar={setAvatar}/>
-            <InputItem labelNumber={10} onChange={value => {handleChange('postedPosition',value)}}
+            <InputItem labelNumber={10} onChange={value => {handleChange('offeringPosition',value)}}
                        placeholder='Position you offer'>Offering positions: </InputItem>
             <InputItem labelNumber={10} onChange={value => {handleChange('companyName',value)}}
                        placeholder='Name of you company'>Company name: </InputItem>
             <InputItem labelNumber={10} onChange={value => {handleChange('offerSalary',value)}}
                        placeholder='Amount of salary you offer'>Offering salary: </InputItem>
             <TextareaItem labelNumber={10} onChange={value => {handleChange('positionRequirement',value)}}
-                          title='Position requirement:' rows={3}/>
+                          title='Requirement:' rows={3}/>
             <Button type='primary' onClick={saveInfo}>Save</Button>
         </>
     )

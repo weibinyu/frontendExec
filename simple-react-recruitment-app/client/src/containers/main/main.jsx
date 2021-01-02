@@ -1,6 +1,5 @@
 import {Switch,Route,Redirect} from "react-router-dom";
 import{connect} from 'react-redux'
-import Cookies from 'js-cookie'
 import {NavBar} from "antd-mobile";
 
 import EmployerInfo from "../employer-info/employer-info";
@@ -48,8 +47,9 @@ function Main(props){
             text: 'Personal ',
         }
     ]
+
     useEffect(() => {
-        const userid = Cookies.get('userid')
+        const userid = window.sessionStorage.getItem("userid")
         const {_id} = props.user
         if(userid && !_id){
             props.getUserInfo()
@@ -57,8 +57,10 @@ function Main(props){
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
-    const userid = Cookies.get('userid')
+    const userid = window.sessionStorage.getItem("userid")
+    console.log(userid)
     if(!userid){
+        console.log(document.cookie)
         return <Redirect to='/login'/>
     }
 

@@ -1,15 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Result,List, WhiteSpace, Button,Modal} from "antd-mobile";
-import Cookies from 'js-cookie'
 
 import {resetUser} from '@/redux/actions';
 
 function Personal(props){
   const Item = List.Item
-  const Brief = Item.Brief
-
-  const {username,avatar,companyName,desiredPosition,offerSalary,personalInfo} = props.user
+  const {username,avatar,companyName,desiredPosition,offerSalary,personalInfo,positionRequirement,offeringPosition} = props.user
 
   const handleLogout = () => {
     Modal.alert('Logout','Do you want to logout?',[
@@ -17,7 +14,7 @@ function Personal(props){
       {
         text:'Yes',
         onPress: () => {
-          Cookies.remove('userid')
+          window.sessionStorage.removeItem("userid")
           props.resetUser()
         }
       }
@@ -33,11 +30,12 @@ function Personal(props){
         />
 
         <List renderHeader={()=>'Related Info'}>
-          <Item multipleLine>
-            <Brief>Post: {desiredPosition}</Brief>
-            <Brief>Info: {personalInfo}</Brief>
-            {offerSalary ? <Brief>Salary: {offerSalary}</Brief> : null}
-          </Item>
+            {personalInfo ? <Item wrap>Info: {personalInfo}</Item> : null}
+            {companyName ? <Item>Company: {companyName}</Item> : null}
+            {offeringPosition ? <Item>Offer Position: {offeringPosition}</Item> : null}
+            {desiredPosition ? <Item>Desired Position: {desiredPosition}</Item> : null}
+            {positionRequirement? <Item wrap>Requirement: {positionRequirement}</Item> : null}
+            {offerSalary ? <Item>Offer Salary: {offerSalary}</Item> : null}
         </List>
         <WhiteSpace/>
         <Button type='warning' onClick={handleLogout}>Logout</Button>

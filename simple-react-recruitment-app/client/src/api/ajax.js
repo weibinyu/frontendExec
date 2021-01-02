@@ -5,22 +5,31 @@
 import axios from 'axios'
 
 export default function ajax(url, data={}, type='GET'){
+    const instance = axios.create({
+        //baseURL:'https://localhost:4000',
+        //baseURL:'https://infinite-reef-37663.herokuapp.com',
+        baseURL:'https://server.thepriceofedu.xyz',
+        timeout:5000,
+        withCredentials:true
+    })
 
     if(type==='GET'){
-        const paramStr = createParamString(data)
-        return axios.get(url+'?'+paramStr)
+        return instance({
+            url,
+            method:type,
+            params: {
+                ...data
+            }
+        })
     }else {
-        return axios.post(url,data)
+        return instance({
+            url,
+            method:'POST',
+            data:{
+                ...data
+            }
+        })
     }
-}
 
-function createParamString(data){
-    let paramStr = ''
-    Object.keys(data).forEach(key =>{
-        paramStr += key+'='+data[key]+'&'
-    })
-    if(paramStr){
-        paramStr = paramStr.substring(0,paramStr.length-1)
-    }
-    return paramStr
+
 }

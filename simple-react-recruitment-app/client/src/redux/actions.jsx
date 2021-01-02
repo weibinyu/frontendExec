@@ -18,7 +18,8 @@ import {
 
 function initIO(dispatch,userid){
     if(!io.socket){
-        io.socket = io('ws://localhost:4000')
+        io.socket = io('wss://server.thepriceofedu.xyz')
+        //io.socket = io('wss://localhost:4000/')
         io.socket.on('receiveMessage',(chatMessage) => {
             console.log('Browser got data: ',chatMessage)
             if(userid === chatMessage.from || userid === chatMessage.to){
@@ -56,30 +57,33 @@ export const register = (user) =>{
         const response = await reqRegister({username,password,userType})
         const result = response.data
         if(result.code === 0){
-            getMessageList(dispatch,result.data._id)
+            window.sessionStorage.setItem("userid", result.data._id);
+            await getMessageList(dispatch,result.data._id)
             dispatch(authSuccess(result.data))
         }else {
             dispatch(errorMsg(result.msg))
         }
     }
 }
+
 export const login = (user) =>{
     const {username} = user
     if(!username){
         return errorMsg('Username is missing')
     }
-
     return async dispatch =>{
         const response = await reqLogin(user)
         const result = response.data
         if(result.code === 0){
-            getMessageList(dispatch,result.data._id)
+            window.sessionStorage.setItem("userid", result.data._id);
+            await getMessageList(dispatch,result.data._id)
             dispatch(authSuccess(result.data))
         }else {
             dispatch(errorMsg(result.msg))
         }
     }
 }
+
 export const updateUser = (user) =>{
     return async dispatch =>{
         const response = await reqUserUpdate(user)
@@ -96,7 +100,8 @@ export const getUserInfo = () =>{
         const response = await reqUserInfo()
         const result = response.data
         if(result.code===0){
-            getMessageList(dispatch,result.data._id)
+            window.sessionStorage.setItem("userid", result.data._id);
+            await getMessageList(dispatch,result.data._id)
             dispatch(receiveUser(result.data))
         }else {
             dispatch(resetUser(result.msg))

@@ -14,7 +14,6 @@ const Body = Card.Body
 function UserList(props){
 
   const {userList} = props
-
   return (
       <>
         <WingBlank className='lists'>
@@ -25,7 +24,7 @@ function UserList(props){
                     <WhiteSpace />
                     <Card onClick={()=> props.history.push(`/chat/${user._id}`)}>
                       <Header
-                          thumb={require(`@/assets/avatars/${user.avatar}.png`).default}
+                          thumb={ user.avatar ? require(`@/assets/avatars/${user.avatar}.png`).default : null}
                           extra={user.username}
                       />
                       <Body>
